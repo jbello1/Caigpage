@@ -1,96 +1,338 @@
 <!DOCTYPE html>
-<html lang="es-CL">
+<html lang="es" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Centro Gesu - Tratamiento TEA Chile</title>
-  <meta name="description" content="Centro Infanto-juvenil Gesu: especialistas en TEA en Santiago. Evaluaciones diagnósticas, terapia ABA, lenguaje y programas para niños y adolescentes.">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centro Infanto-juvenil Gesu - Inicio</title>
+    <!-- Tailwind CSS (CDN for Static Environment) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'gesu-teal': '#4ECDC4',
+                        'gesu-coral': '#FF6B6B',
+                        'gesu-yellow': '#FFE66D',
+                        'gesu-cream': '#F9F9F9',
+                        'gesu-text': '#2D3436',
+                    },
+                    fontFamily: {
+                        'heading': ['"Quicksand"', 'sans-serif'],
+                        'body': ['"Nunito"', 'sans-serif'],
+                    },
+                    borderRadius: {
+                        'blob': '40% 60% 70% 30% / 40% 50% 60% 50%',
+                        'leaf': '3rem 0 3rem 0'
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'fade-up': 'fadeUp 0.8s ease-out forwards',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-15px)' },
+                        },
+                        fadeUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Custom static overrides if necessary, though Tailwind will do most -->
+    <link rel="stylesheet" href="css/style.css">
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .glass {
+                @apply bg-white/70 backdrop-blur-md border border-white/40;
+            }
+        }
+        body { font-family: 'Nunito', sans-serif; background-color: #F9F9F9; color: #2D3436; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Quicksand', sans-serif; }
+    </style>
 </head>
-<body>
-  <!-- NAVBAR -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
-    <div class="container">
-      <a class="navbar-brand fw-bold" href="index.html">Centro Gesu</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="menu">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="nosotros.html">Nosotros</a></li>
-          <li class="nav-item"><a class="nav-link" href="equipo.html">Equipo</a></li>
-          <li class="nav-item"><a class="nav-link" href="especialidades.html">Especialidades</a></li>
-          <li class="nav-item"><a class="nav-link" href="test.html">Test</a></li>
-          <li class="nav-item"><a class="nav-link" href="agenda.html">Agenda</a></li>
-          <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+<body class="antialiased overflow-x-hidden selection:bg-gesu-coral selection:text-white">
 
-  <!-- HERO -->
-  <header class="hero text-center text-white d-flex align-items-center">
-    <div class="container">
-      <h1 class="fw-bold display-4">Centro Infanto-juvenil Gesu</h1>
-      <p class="lead">Especialistas en Trastorno del Espectro Autista (TEA)</p>
-      <div class="mt-4">
-        <a href="https://wa.me/56959501189" class="btn btn-success btn-lg me-2">📲 Solicitar Evaluación</a>
-        <a href="agenda.html" class="btn btn-primary btn-lg">🗓 Ver Agenda</a>
-      </div>
-    </div>
-  </header>
+    <!-- Navbar -->
+    <header class="fixed w-full top-0 z-50 transition-all duration-300 py-4" id="main-nav">
+        <div class="container mx-auto px-4 lg:px-8">
+            <nav class="glass rounded-full px-6 py-3 flex items-center justify-between shadow-sm">
+                <a href="index.html" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-blob bg-gesu-teal overflow-hidden p-1 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                        <img src="imagenes/logo.jpg" alt="Logo Centro Gesu" class="w-full h-full object-cover rounded-full bg-white">
+                    </div>
+                    <span class="font-heading font-bold text-sm lg:text-base text-gesu-text tracking-tight hidden md:block">Centro Apoyo Infanto-Juvenil GESU C.A.I.G</span>
+                </a>
 
-  <!-- CARRUSEL -->
-  <section id="carrusel" class="container py-5">
-    <div id="carouselGesu" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-inner">
-        <div class="carousel-item active"><img src="img/terapia.webp" class="d-block w-100" alt="Terapia con niños"></div>
-        <div class="carousel-item"><img src="img/instalaciones.webp" class="d-block w-100" alt="Instalaciones adaptadas"></div>
-        <div class="carousel-item"><img src="img/equipo.webp" class="d-block w-100" alt="Equipo en acción"></div>
-      </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselGesu" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon"></span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselGesu" data-bs-slide="next">
-        <span class="carousel-control-next-icon"></span>
-      </button>
-    </div>
-  </section>
+                <button class="lg:hidden text-gesu-text text-2xl nav-toggle focus:outline-none" aria-label="Abrir menú">
+                    <i class="fas fa-bars"></i>
+                </button>
 
-  <!-- TESTIMONIOS -->
-  <section class="bg-light py-5 text-center">
-    <div class="container">
-      <h2 class="mb-4">Experiencias de Familias</h2>
-      <p class="lead">⭐ 4.9/5 | +10 años de experiencia | +500 familias atendidas</p>
-      <div class="row">
-        <div class="col-md-4"><blockquote>"Gracias al equipo Gesu, mi hijo avanzó muchísimo".</blockquote></div>
-        <div class="col-md-4"><blockquote>"Un lugar profesional y muy humano".</blockquote></div>
-        <div class="col-md-4"><blockquote>"Recomendamos totalmente el centro".</blockquote></div>
-      </div>
-    </div>
-  </section>
+                <ul class="nav-menu absolute lg:static top-full left-4 right-4 mt-2 lg:mt-0 glass lg:bg-transparent lg:border-none lg:backdrop-blur-none rounded-2xl lg:rounded-none p-5 lg:p-0 flex flex-col lg:flex-row gap-4 lg:gap-8 shadow-xl lg:shadow-none hidden lg:flex items-center transform transition-all duration-300 origin-top opacity-0 lg:opacity-100 lg:scale-100 scale-95">
+                    <li><a href="index.html" class="font-heading font-semibold text-gesu-teal relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-full after:h-0.5 after:bg-gesu-teal after:rounded-full">Inicio</a></li>
+                    <li><a href="nosotros.html" class="font-heading font-semibold text-gray-600 hover:text-gesu-teal transition-colors">Nosotros</a></li>
+                    <li><a href="servicios.html" class="font-heading font-semibold text-gray-600 hover:text-gesu-teal transition-colors">Servicios</a></li>
+                    <li><a href="especialistas.html" class="font-heading font-semibold text-gray-600 hover:text-gesu-teal transition-colors">Especialistas</a></li>
+                    <li><a href="testimonios.html" class="font-heading font-semibold text-gray-600 hover:text-gesu-teal transition-colors">Testimonios</a></li>
+                    <li><a href="precios.html" class="font-heading font-semibold text-gray-600 hover:text-gesu-teal transition-colors">Precios</a></li>
 
-  <!-- SERVICIOS DESTACADOS -->
-  <section class="container py-5 text-center">
-    <h2 class="mb-4">Nuestros Servicios</h2>
-    <div class="row">
-      <div class="col-md-4"><div class="card p-3"><h3>Evaluación Diagnóstica</h3><a href="especialidades.html" class="btn btn-outline-primary">Ver más</a></div></div>
-      <div class="col-md-4"><div class="card p-3"><h3>Terapia ABA</h3><a href="especialidades.html" class="btn btn-outline-primary">Ver más</a></div></div>
-      <div class="col-md-4"><div class="card p-3"><h3>Programas Grupales</h3><a href="especialidades.html" class="btn btn-outline-primary">Ver más</a></div></div>
-    </div>
-  </section>
+                </ul>
 
-  <!-- WHATSAPP FLOAT -->
-  <a href="https://wa.me/56959501189" class="whatsapp-float">
-    <img src="img/whatsapp-icon.webp" alt="WhatsApp Gesu" width="60">
-  </a>
+                <a href="https://wa.me/56959501189?text=Hola,%20quisiera%20reservar%20una%20hora." target="_blank" class="hidden lg:inline-flex bg-gesu-coral text-white font-heading font-bold px-6 py-2.5 rounded-full hover:bg-opacity-90 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 items-center justify-center">
+                    Reservar Hora
+                </a>
+            </nav>
+        </div>
+    </header>
 
-  <!-- FOOTER -->
-  <footer class="bg-dark text-white text-center py-3">
-    <p>© 2025 Centro Infanto-juvenil Gesu | Santiago de Chile</p>
-  </footer>
+    <main class="pt-28">
+        <!-- Hero Section -->
+        <section class="relative py-12 lg:py-20 overflow-hidden">
+            <!-- Decorative Blobs -->
+            <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-gesu-yellow/30 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-float" style="animation-delay: 2s;"></div>
+            <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-72 h-72 bg-gesu-teal/20 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-float"></div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+            <div class="container mx-auto px-6 lg:px-12 relative z-10">
+                <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+                    
+                    <div class="flex-1 text-center lg:text-left space-y-8 animate-fade-up">
+                        <span class="inline-block py-1 px-3 bg-gesu-teal/10 text-gesu-teal rounded-full font-bold tracking-wider text-sm mb-2 font-heading">TERAPIA CON PROPÓSITO</span>
+                        <h1 class="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-gray-900 leading-tight">
+                            Acompañamiento <span class="text-gesu-teal inline-block transform hover:rotate-2 transition-transform duration-300">integral</span> para niños y niñas.
+                        </h1>
+                        <p class="text-lg text-gray-600 max-w-2xl mx-auto lg:mx-0">
+                            En Pudahuel, Chile, combinamos evidencia clínica, calidez humana y trabajo colaborativo para impulsar el desarrollo integral en el trastorno del espectro autista (TEA).
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
+                            <a href="https://wa.me/56959501189?text=Hola,%20quisiera%20solicitar%20información." target="_blank" class="bg-gesu-teal text-white font-heading font-bold px-8 py-4 rounded-full shadow-lg shadow-gesu-teal/30 hover:shadow-xl hover:-translate-y-1 hover:bg-opacity-90 transition-all duration-300 group flex items-center justify-center gap-2">
+                                <i class="fab fa-whatsapp text-xl group-hover:scale-125 transition-transform duration-300"></i> Solicitar Información
+                            </a>
+                            <a href="servicios.html" class="bg-white border-2 border-transparent text-gray-700 font-heading font-bold px-8 py-4 rounded-full shadow-md hover:border-gesu-coral hover:text-gesu-coral hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2 group">
+                                <i class="fas fa-heart text-gesu-coral opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute -ml-6"></i> Conocer Servicios
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="flex-1 w-full relative animate-fade-up" style="animation-delay: 0.2s;">
+                        <!-- Organic Image Frame -->
+                        <div class="relative w-full aspect-square md:aspect-[4/3] rounded-leaf border-4 border-white shadow-2xl overflow-hidden group">
+                           <div class="absolute inset-0 bg-gesu-teal/20 mix-blend-overlay z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                           <div class="carousel-slide flex w-full h-full">
+                               <img src="imagenes/carousel-1.JPG" alt="Centro Gesu Instalaciones" class="w-full h-full object-cover flex-shrink-0">
+                               <img src="imagenes/carousel-2.JPG" alt="Therapy Session" class="w-full h-full object-cover flex-shrink-0">
+                               <img src="imagenes/carousel-3.JPG" alt="Children Activity" class="w-full h-full object-cover flex-shrink-0">
+                           </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Services Section -->
+        <section id="servicios-inicio" class="py-20 bg-gesu-cream relative">
+            <div class="container mx-auto px-6 lg:px-12">
+                <div class="text-center mb-16 animate-fade-up" style="animation-duration: 1s;">
+                    <h2 class="text-3xl md:text-5xl font-heading font-bold text-gray-900 mb-4">Nuestros Servicios y Evaluaciones</h2>
+                    <div class="w-24 h-1.5 bg-gesu-yellow mx-auto rounded-full"></div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8 lg:gap-12 relative z-10">
+                    <!-- Service Card 1 -->
+                    <div class="bg-white rounded-3xl p-8 lg:p-12 shadow-xl hover:-translate-y-2 transition-transform duration-300 relative overflow-hidden group">
+                        <div class="absolute -right-10 -top-10 w-32 h-32 bg-gesu-teal/10 rounded-full group-hover:scale-150 transition-transform duration-700"></div>
+                        <h3 class="text-2xl font-heading font-bold text-gesu-teal mb-6 flex items-center gap-3">
+                            <span class="p-3 bg-gesu-teal/10 rounded-xl text-gesu-teal"><i class="fas fa-hands-helping"></i></span> Servicios Terapéuticos
+                        </h3>
+                        <ul class="space-y-4 text-gray-700">
+                            <li class="flex items-center gap-3"><i class="fas fa-check text-gesu-yellow"></i> Terapia Ocupacional</li>
+                            <li class="flex items-center gap-3"><i class="fas fa-check text-gesu-yellow"></i> Psicopedagogía</li>
+                            <li class="flex items-center gap-3"><i class="fas fa-check text-gesu-yellow"></i> Fonoaudiología</li>
+                            <li class="flex items-center gap-3"><i class="fas fa-check text-gesu-yellow"></i> Psicología Clínica</li>
+                            <li class="flex items-center gap-3"><i class="fas fa-check text-gesu-yellow"></i> Medicina Familiar</li>
+                            <li class="flex items-center gap-3"><i class="fas fa-check text-gesu-yellow"></i> Nutrición y Dietética</li>
+                            <li class="flex items-center gap-3"><i class="fas fa-check text-gesu-yellow"></i> Kinesiología</li>
+                        </ul>
+                    </div>
+
+                    <!-- Service Card 2 -->
+                    <div class="bg-white rounded-3xl p-8 lg:p-12 shadow-xl hover:-translate-y-2 transition-transform duration-300 relative overflow-hidden group">
+                        <div class="absolute -right-10 -top-10 w-32 h-32 bg-gesu-coral/10 rounded-full group-hover:scale-150 transition-transform duration-700"></div>
+                        <h3 class="text-2xl font-heading font-bold text-gesu-coral mb-6 flex items-center gap-3">
+                            <span class="p-3 bg-gesu-coral/10 rounded-xl text-gesu-coral"><i class="fas fa-clipboard-list"></i></span> Evaluaciones y Pruebas
+                        </h3>
+                        <ul class="space-y-4 text-gray-700">
+                            <li class="flex items-center gap-3"><i class="fas fa-check text-gesu-yellow"></i> Test ADOS-2</li>
+                            <li class="flex items-center gap-3"><i class="fas fa-check text-gesu-yellow"></i> Test WISC V</li>
+                            <li class="flex items-center gap-3"><i class="fas fa-check text-gesu-yellow"></i> Test WAIS IV</li>
+                            <li class="flex items-center gap-3"><i class="fas fa-check text-gesu-yellow"></i> Perfil Sensorial</li>
+                            <li class="flex items-center gap-3"><i class="fas fa-check text-gesu-yellow"></i> Valoración de cada profesión</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Contact Section -->
+        <section id="contacto" class="py-16 bg-white relative">
+             <div class="container mx-auto px-6 lg:px-12 flex flex-col md:flex-row items-center gap-12">
+                <div class="flex-1 text-center md:text-left animate-fade-up">
+                    <div class="inline-flex justify-center items-center w-16 h-16 bg-gesu-teal/10 rounded-full text-gesu-teal shadow-inner border border-gesu-teal/20 mb-6 animate-bounce">
+                        <i class="fas fa-map-marker-alt text-2xl"></i>
+                    </div>
+                    <h2 class="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-4">Visítanos</h2>
+                    <p class="text-lg text-gray-600 mb-8">Nuestras puertas están abiertas para recibirte en un espacio adaptado para el cuidado y desarrollo integral.</p>
+                    
+                    <a href="https://www.google.com/maps/dir/?api=1&destination=Meli+7428,+Pudahuel,+Santiago" target="_blank" class="block group mb-4 hover:-translate-y-1 transition-transform duration-300">
+                        <div class="p-6 rounded-[2rem] bg-gray-50 border border-gray-100 shadow-sm hover:shadow-md hover:border-gesu-teal/30 transition-all duration-300">
+                            <p class="text-gray-500 text-sm mb-1 uppercase tracking-wider font-bold">Dirección</p>
+                            <p class="text-xl text-gray-800"><strong class="text-gesu-teal font-heading group-hover:underline">Meli 7428, Pudahuel, Santiago.</strong></p>
+                            <p class="text-sm font-bold text-gesu-coral mt-3 flex items-center gap-2 justify-center md:justify-start"><i class="fas fa-directions"></i> Cómo llegar en Google Maps</p>
+                        </div>
+                    </a>
+                    
+                    <div class="p-6 rounded-[2rem] bg-gesu-yellow/10 border border-gesu-yellow/20 shadow-sm mb-6 flex items-start gap-4 justify-center md:justify-start text-left">
+                        <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-gesu-yellow shadow-sm flex-shrink-0 mt-1">
+                            <i class="far fa-clock text-xl"></i>
+                        </div>
+                        <div>
+                            <p class="text-gray-500 text-sm mb-1 uppercase tracking-wider font-bold">Horarios de Atención</p>
+                            <p class="text-gray-800 font-heading font-semibold"><span class="text-gesu-teal">Lunes a Viernes:</span> 9:00 a 19:00 hrs</p>
+                            <p class="text-gray-800 font-heading font-semibold"><span class="text-gesu-teal">Sábados:</span> 9:00 a 14:00 hrs</p>
+                        </div>
+                    </div>
+                    
+                    <p class="text-lg text-gray-600 border-t border-gray-100 pt-6">Contáctanos al <a href="https://wa.me/56959501189" target="_blank" class="font-bold text-gesu-coral hover:underline inline-flex items-center gap-1"><i class="fab fa-whatsapp"></i> +56 9 5950 1189</a></p>
+                </div>
+                
+                <div class="flex-1 w-full h-[350px] relative rounded-[2.5rem] overflow-hidden shadow-xl border-4 border-white group animate-fade-up" style="animation-delay: 0.2s;">
+                    <!-- Overlay clickable -->
+                    <a href="https://www.google.com/maps/dir/?api=1&destination=Meli+7428,+Pudahuel,+Santiago" target="_blank" class="absolute inset-0 z-20 flex items-center justify-center bg-gesu-teal/20 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <span class="bg-white text-gray-900 px-6 py-3 rounded-full font-heading font-bold shadow-2xl flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                            <i class="fas fa-location-arrow text-gesu-teal"></i> Trazar Ruta a Centro GESU
+                        </span>
+                    </a>
+                    <!-- Iframe container (Desactivamos pointer-events para que el enlace intercepte el clic en todo el recuadro) -->
+                    <div class="w-full h-full relative z-10 pointer-events-none filter grayscale-[20%] group-hover:grayscale-0 transition-all duration-500">
+                        <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=100%25&amp;hl=es&amp;q=Meli%207428,%20Pudahuel,%20Santiago+(Centro%20Apoyo%20Infanto-Juvenil%20GESU)&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
+                    </div>
+                </div>
+             </div>
+        </section>
+
+        <!-- Instagram Section -->
+        <!-- Instagram Section / Story Highlights Carousel -->
+        <section class="py-20 relative overflow-hidden bg-white">
+            <div class="container mx-auto px-6 lg:px-12">
+                <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6 animate-fade-up">
+                    <div>
+                        <h2 class="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-2">Momentos Destacados</h2>
+                        <p class="text-gray-600 text-lg">Revive nuestras actividades en <a href="https://www.instagram.com/centro.caig" target="_blank" class="text-gesu-coral font-bold hover:underline">@centro.caig</a></p>
+                    </div>
+                    <a href="https://www.instagram.com/stories/highlights/18071048243494517/" target="_blank" class="px-6 py-3 bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-500 text-white rounded-full font-heading font-bold hover:shadow-lg transition-shadow flex items-center gap-2">
+                        <i class="fab fa-instagram text-xl"></i> Ver Highlight Oficial
+                    </a>
+                </div>
+                
+                <!-- Carousel Container -->
+                <div class="relative w-full max-w-full overflow-hidden group">
+                    <div class="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-8 pt-4 scrollbar-hide px-4" id="insta-carousel" style="scroll-behavior: smooth; scrollbar-width: none; -ms-overflow-style: none;">
+                        <style>
+                            #insta-carousel::-webkit-scrollbar { display: none; }
+                        </style>
+                        
+                        <!-- Highlight 1 -->
+                        <a href="https://www.instagram.com/stories/highlights/18071048243494517/" target="_blank" class="flex-shrink-0 w-64 md:w-72 aspect-[9/16] snap-center rounded-[2.5rem] overflow-hidden relative shadow-lg border-4 border-gesu-teal/30 hover:border-gesu-yellow transition-all duration-300 transform hover:-translate-y-2 bg-gray-200">
+                            <!-- Sustituir "insta-1.jpg" copiando la imagen del highlight a la carpeta local "imagenes" -->
+                            <img src="imagenes/insta-1.jpg" alt="Insta Story Highlight 1" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-black/30 flex flex-col justify-between p-6">
+                                <div class="self-end bg-black/40 backdrop-blur-sm px-3 py-1 rounded-full text-white text-xs border border-white/20">
+                                    <i class="fas fa-play text-[10px]"></i> Story
+                                </div>
+                                <div>
+                                    <h4 class="text-white font-bold text-xl leading-tight font-heading shadow-sm">Actividad Infantil</h4>
+                                    <p class="text-gray-300 text-sm mt-1 flex items-center gap-1"><i class="fab fa-instagram"></i> CAIG</p>
+                                </div>
+                            </div>
+                        </a>
+
+                        <!-- Highlight 2 -->
+                        <a href="https://www.instagram.com/stories/highlights/18071048243494517/" target="_blank" class="flex-shrink-0 w-64 md:w-72 aspect-[9/16] snap-center rounded-[2.5rem] overflow-hidden relative shadow-lg border-4 border-gesu-teal/30 hover:border-gesu-coral transition-all duration-300 transform hover:-translate-y-2 bg-gray-200">
+                            <img src="imagenes/insta-2.jpg" alt="Insta Story Highlight 2" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-black/30 flex flex-col justify-between p-6">
+                                <div class="self-end bg-black/40 backdrop-blur-sm px-3 py-1 rounded-full text-white text-xs border border-white/20">
+                                    <i class="fas fa-play text-[10px]"></i> Story
+                                </div>
+                                <div>
+                                    <h4 class="text-white font-bold text-xl leading-tight font-heading">Instalaciones</h4>
+                                    <p class="text-gray-300 text-sm mt-1 flex items-center gap-1"><i class="fab fa-instagram"></i> CAIG</p>
+                                </div>
+                            </div>
+                        </a>
+
+                        <!-- Highlight 3 -->
+                        <a href="https://www.instagram.com/stories/highlights/18071048243494517/" target="_blank" class="flex-shrink-0 w-64 md:w-72 aspect-[9/16] snap-center rounded-[2.5rem] overflow-hidden relative shadow-lg border-4 border-gesu-teal/30 hover:border-gesu-teal transition-all duration-300 transform hover:-translate-y-2 bg-gray-200">
+                            <img src="imagenes/insta-3.jpg" alt="Insta Story Highlight 3" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-black/30 flex flex-col justify-between p-6">
+                                <div class="self-end bg-black/40 backdrop-blur-sm px-3 py-1 rounded-full text-white text-xs border border-white/20">
+                                    <i class="fas fa-play text-[10px]"></i> Story
+                                </div>
+                                <div>
+                                    <h4 class="text-white font-bold text-xl leading-tight font-heading">Eventos</h4>
+                                    <p class="text-gray-300 text-sm mt-1 flex items-center gap-1"><i class="fab fa-instagram"></i> CAIG</p>
+                                </div>
+                            </div>
+                        </a>
+
+                        <!-- Highlight 4 -->
+                        <a href="https://www.instagram.com/stories/highlights/18071048243494517/" target="_blank" class="flex-shrink-0 w-64 md:w-72 aspect-[9/16] snap-center rounded-[2.5rem] overflow-hidden relative shadow-lg border-4 border-gesu-teal/30 hover:border-gesu-yellow transition-all duration-300 transform hover:-translate-y-2 bg-gray-200">
+                            <img src="imagenes/insta-4.jpg" alt="Insta Story Highlight 4" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-black/30 flex flex-col justify-between p-6">
+                                <div class="self-end bg-black/40 backdrop-blur-sm px-3 py-1 rounded-full text-white text-xs border border-white/20">
+                                    <i class="fas fa-play text-[10px]"></i> Story
+                                </div>
+                                <div>
+                                    <h4 class="text-white font-bold text-xl leading-tight font-heading">Tips</h4>
+                                    <p class="text-gray-300 text-sm mt-1 flex items-center gap-1"><i class="fab fa-instagram"></i> CAIG</p>
+                                </div>
+                            </div>
+                        </a>
+                        
+                    </div>
+
+                    <!-- Navigation Buttons -->
+                    <button class="absolute top-1/2 left-0 -translate-y-1/2 w-14 h-14 bg-white/80 backdrop-blur-sm rounded-full shadow-xl flex items-center justify-center text-gesu-teal hover:bg-gesu-teal hover:text-white transition-all scale-0 group-hover:scale-100 z-10" onclick="document.getElementById('insta-carousel').scrollBy({left: -320, behavior: 'smooth'})">
+                        <i class="fas fa-chevron-left text-xl"></i>
+                    </button>
+                    <button class="absolute top-1/2 right-0 -translate-y-1/2 w-14 h-14 bg-white/80 backdrop-blur-sm rounded-full shadow-xl flex items-center justify-center text-gesu-teal hover:bg-gesu-teal hover:text-white transition-all scale-0 group-hover:scale-100 z-10" onclick="document.getElementById('insta-carousel').scrollBy({left: 320, behavior: 'smooth'})">
+                        <i class="fas fa-chevron-right text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-900 border-t border-gray-800 text-white py-8">
+        <div class="container mx-auto px-6 text-center">
+            <h3 class="font-heading font-bold text-xl text-gesu-teal mb-4">Centro Infanto-Juvenil GESU</h3>
+            <p class="text-gray-400">&copy; 2025 Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/56959501189?text=Hola,%20quisiera%20reservar%20una%20hora." target="_blank" aria-label="Contactar por WhatsApp" class="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 hover:shadow-[#25D366]/40 transition-all duration-300 flex items-center justify-center group overflow-hidden">
+        <i class="fab fa-whatsapp text-3xl"></i>
+        <span class="max-w-0 overflow-hidden whitespace-nowrap opacity-0 group-hover:max-w-xs group-hover:opacity-100 group-hover:ml-3 transition-all duration-500 ease-in-out font-heading font-bold hidden md:block">Reserva tu Hora!</span>
+    </a>
+
+    <script src="js/script.js"></script>
 </body>
 </html>

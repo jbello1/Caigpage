@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Especialistas - Centro Infanto-juvenil Gesu</title>
+    <!-- Tailwind CSS (CDN for Static Environment) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'gesu-teal': '#4ECDC4',
+                        'gesu-coral': '#FF6B6B',
+                        'gesu-yellow': '#FFE66D',
+                        'gesu-cream': '#F9F9F9',
+                        'gesu-text': '#2D3436',
+                    },
+                    fontFamily: {
+                        'heading': ['"Quicksand"', 'sans-serif'],
+                        'body': ['"Nunito"', 'sans-serif'],
+                    },
+                    borderRadius: {
+                        'blob': '40% 60% 70% 30% / 40% 50% 60% 50%',
+                        'leaf': '3rem 0 3rem 0',
+                        'egg': '50% 50% 50% 50% / 60% 60% 40% 40%'
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'fade-up': 'fadeUp 0.8s ease-out forwards',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-15px)' },
+                        },
+                        fadeUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .glass {
+                @apply bg-white/70 backdrop-blur-md border border-white/40;
+            }
+        }
+        body { font-family: 'Nunito', sans-serif; background-color: #F9F9F9; color: #2D3436; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Quicksand', sans-serif; }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden selection:bg-gesu-coral selection:text-white bg-[#F9F9F9]">
+
+    <!-- Navbar -->
+    <header class="fixed w-full top-0 z-50 transition-all duration-300 py-4" id="main-nav">
+        <div class="container mx-auto px-4 lg:px-8">
+            <nav class="glass rounded-full px-6 py-3 flex items-center justify-between shadow-sm">
+                <a href="index.html" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-blob bg-gesu-teal overflow-hidden p-1 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                        <img src="imagenes/logo.jpg" alt="Logo Centro Gesu" class="w-full h-full object-cover rounded-full bg-white">
+                    </div>
+                    <span class="font-heading font-bold text-sm lg:text-base text-gesu-text tracking-tight hidden md:block">Centro Apoyo Infanto-Juvenil GESU C.A.I.G</span>
+                </a>
+
+                <button class="lg:hidden text-gesu-text text-2xl nav-toggle focus:outline-none" aria-label="Abrir menú">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <ul class="nav-menu absolute lg:static top-full left-4 right-4 mt-2 lg:mt-0 glass lg:bg-transparent lg:border-none lg:backdrop-blur-none rounded-2xl lg:rounded-none p-5 lg:p-0 flex flex-col lg:flex-row gap-4 lg:gap-8 shadow-xl lg:shadow-none hidden lg:flex items-center transform transition-all duration-300 origin-top opacity-0 lg:opacity-100 lg:scale-100 scale-95">
+                    <li><a href="index.html" class="font-heading font-semibold text-gray-600 hover:text-gesu-teal transition-colors">Inicio</a></li>
+                    <li><a href="nosotros.html" class="font-heading font-semibold text-gray-600 hover:text-gesu-teal transition-colors">Nosotros</a></li>
+                    <li><a href="servicios.html" class="font-heading font-semibold text-gray-600 hover:text-gesu-teal transition-colors">Servicios</a></li>
+                    <li><a href="especialistas.html" class="font-heading font-semibold text-gesu-teal relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-full after:h-0.5 after:bg-gesu-teal after:rounded-full">Especialistas</a></li>
+                    <li><a href="testimonios.html" class="font-heading font-semibold text-gray-600 hover:text-gesu-teal transition-colors">Testimonios</a></li>
+                    <li><a href="precios.html" class="font-heading font-semibold text-gray-600 hover:text-gesu-teal transition-colors">Precios</a></li>
+                </ul>
+
+                <a href="https://wa.me/56959501189?text=Hola,%20quisiera%20reservar%20una%20hora." target="_blank" class="hidden lg:inline-flex bg-gesu-coral text-white font-heading font-bold px-6 py-2.5 rounded-full hover:bg-opacity-90 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 items-center justify-center">
+                    Reservar Hora
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="pt-32 pb-20">
+        <!-- Page Header -->
+        <section class="relative py-12 lg:py-16 overflow-hidden">
+            <div class="absolute top-0 right-1/4 w-64 h-64 bg-gesu-yellow/20 rounded-full blur-3xl mix-blend-multiply opacity-50 z-0"></div>
+            <div class="absolute bottom-10 left-10 w-48 h-48 bg-gesu-coral/10 rounded-blob mix-blend-multiply opacity-50 animate-float z-0"></div>
+            
+            <div class="container mx-auto px-6 lg:px-12 relative z-10 text-center animate-fade-up">
+                <span class="inline-block py-1 px-4 bg-gesu-teal/10 text-gesu-teal rounded-full font-bold tracking-wider text-sm mb-4 font-heading">NUESTRO EQUIPO</span>
+                <h1 class="text-4xl md:text-5xl lg:text-5xl font-heading font-bold text-gray-900 mb-6">Expertos Dedicados a ti</h1>
+                <p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-8">Conoce a los especialistas capacitados y comprometidos en potenciar el desarrollo integral de cada niño.</p>
+                <div class="w-24 h-1.5 bg-gesu-coral mx-auto rounded-full"></div>
+            </div>
+        </section>
+
+        <!-- Specialists Grid Section -->
+        <section class="py-12 md:py-20 container mx-auto px-6 lg:px-12 relative">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-24 mt-12 animate-fade-up" style="animation-delay: 0.2s;">
+                
+                <!-- Specialist 1 -->
+                <div class="bg-white rounded-[2.5rem] p-8 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 relative group text-center mt-12 border-b-4 border-gesu-teal">
+                    <div class="w-36 h-36 mx-auto rounded-blob bg-gray-200 overflow-hidden border-4 border-white shadow-md absolute -top-16 left-1/2 -translate-x-1/2 group-hover:scale-110 transition-transform duration-300">
+                        <img src="imagenes/especialista-1.jpg" alt="Foto de Emilia Torres" class="w-full h-full object-cover">
+                    </div>
+                    <div class="mt-20">
+                        <h3 class="font-heading font-bold text-2xl text-gray-900 mb-1">Emilia Torres</h3>
+                        <p class="text-gesu-teal font-semibold mb-4 text-sm uppercase tracking-wider bg-gesu-teal/10 inline-block px-3 py-1 rounded-full">Terapia Ocupacional</p>
+                        <p class="text-gray-600 leading-relaxed text-sm mb-6">
+                            Licenciada en Terapia Ocupacional con especialización en Integración Sensorial y Trastornos del Neurodesarrollo.
+                        </p>
+                        <a href="https://wa.me/56959501189?text=Hola,%20deseo%20reservar%20con%20Emilia%20Torres" target="_blank" class="inline-flex items-center justify-center gap-2 bg-gesu-teal text-white w-full py-3 rounded-2xl font-heading font-bold hover:bg-gesu-teal/90 transition-colors shadow-md hover:shadow-lg">
+                            <i class="fab fa-whatsapp text-lg"></i> Reservar
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Specialist 2 -->
+                <div class="bg-white rounded-[2.5rem] p-8 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 relative group text-center mt-12 border-b-4 border-gesu-yellow">
+                    <div class="w-36 h-36 mx-auto rounded-blob bg-gray-200 overflow-hidden border-4 border-white shadow-md absolute -top-16 left-1/2 -translate-x-1/2 group-hover:scale-110 transition-transform duration-300" style="border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;">
+                        <img src="imagenes/especialista-2.jpg" alt="Foto de Mateo Rojas" class="w-full h-full object-cover">
+                    </div>
+                    <div class="mt-20">
+                        <h3 class="font-heading font-bold text-2xl text-gray-900 mb-1">Mateo Rojas</h3>
+                        <p class="text-yellow-600 font-semibold mb-4 text-sm uppercase tracking-wider bg-gesu-yellow/20 inline-block px-3 py-1 rounded-full">Terapia Ocupacional</p>
+                        <p class="text-gray-600 leading-relaxed text-sm mb-6">
+                            Magíster en Neuro-rehabilitación. Experto en evaluación y tratamiento de habilidades motoras y de la vida diaria.
+                        </p>
+                        <a href="https://wa.me/56959501189?text=Hola,%20deseo%20reservar%20con%20Mateo%20Rojas" target="_blank" class="inline-flex items-center justify-center gap-2 bg-yellow-500 text-white w-full py-3 rounded-2xl font-heading font-bold hover:bg-yellow-600 transition-colors shadow-md hover:shadow-lg">
+                            <i class="fab fa-whatsapp text-lg"></i> Reservar
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Specialist 3 -->
+                <div class="bg-white rounded-[2.5rem] p-8 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 relative group text-center mt-12 border-b-4 border-indigo-400">
+                    <div class="w-36 h-36 mx-auto rounded-blob bg-gray-200 overflow-hidden border-4 border-white shadow-md absolute -top-16 left-1/2 -translate-x-1/2 group-hover:scale-110 transition-transform duration-300" style="border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;">
+                        <img src="imagenes/fono_pamela_loyola.jpg" alt="Foto de Pamela Loyola" class="w-full h-full object-cover">
+                    </div>
+                    <div class="mt-20">
+                        <h3 class="font-heading font-bold text-2xl text-gray-900 mb-1">Pamela Loyola</h3>
+                        <p class="text-indigo-500 font-semibold mb-4 text-sm uppercase tracking-wider bg-indigo-50 inline-block px-3 py-1 rounded-full">Fonoaudiología</p>
+                        <p class="text-gray-600 leading-relaxed text-sm mb-6">
+                            Fonoaudióloga certificada en evaluación y tratamiento de trastornos del habla y lenguaje en población pediátrica.
+                        </p>
+                        <a href="https://wa.me/56959501189?text=Hola,%20deseo%20reservar%20con%20Pamela%20Loyola" target="_blank" class="inline-flex items-center justify-center gap-2 bg-indigo-500 text-white w-full py-3 rounded-2xl font-heading font-bold hover:bg-indigo-600 transition-colors shadow-md hover:shadow-lg">
+                            <i class="fab fa-whatsapp text-lg"></i> Reservar
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Specialist 4 -->
+                <div class="bg-white rounded-[2.5rem] p-8 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 relative group text-center mt-12 border-b-4 border-gesu-coral lg:col-start-2 lg:col-span-1 lg:-ml-12 lg:ml-0 xl:col-start-auto xl:col-span-1 xl:ml-0 md:col-start-1 md:col-span-2 lg:col-span-1 lg:max-w-none md:max-w-md md:mx-auto lg:mx-0 sm:col-start-auto">
+                    <div class="w-36 h-36 mx-auto rounded-blob bg-gray-200 overflow-hidden border-4 border-white shadow-md absolute -top-16 left-1/2 -translate-x-1/2 group-hover:scale-110 transition-transform duration-300" style="border-radius: 40% 60% 60% 40% / 50% 50% 50% 50%;">
+                        <img src="imagenes/doctora_jocelyn_robledo.jpg" alt="Foto de Jocelyn Robledo" class="w-full h-full object-cover object-top">
+                    </div>
+                    <div class="mt-20">
+                        <h3 class="font-heading font-bold text-2xl text-gray-900 mb-1">Jocelyn Robledo</h3>
+                        <p class="text-gesu-coral font-semibold mb-4 text-sm uppercase tracking-wider bg-gesu-coral/10 inline-block px-3 py-1 rounded-full">Medicina Familiar</p>
+                        <p class="text-gray-600 leading-relaxed text-sm mb-6">
+                            Médico especialista con vasta experiencia en evaluación pediátrica integral y acompañamiento a familias neurodivergentes.
+                        </p>
+                        <a href="https://wa.me/56959501189?text=Hola,%20deseo%20reservar%20con%20Jocelyn%20Robledo" target="_blank" class="inline-flex items-center justify-center gap-2 bg-gesu-coral text-white w-full py-3 rounded-2xl font-heading font-bold hover:bg-gesu-coral/90 transition-colors shadow-md hover:shadow-lg">
+                            <i class="fab fa-whatsapp text-lg"></i> Reservar
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Specialist 5 -->
+                <div class="bg-white rounded-[2.5rem] p-8 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 relative group text-center mt-12 border-b-4 border-green-400 md:col-start-1 md:col-span-2 lg:col-span-1 lg:max-w-none md:max-w-md md:mx-auto lg:mx-0 sm:col-start-auto lg:col-start-3 lg:-ml-24 xl:col-start-auto xl:ml-0">
+                    <div class="w-36 h-36 mx-auto rounded-blob bg-gray-200 overflow-hidden border-4 border-white shadow-md absolute -top-16 left-1/2 -translate-x-1/2 group-hover:scale-110 transition-transform duration-300" style="border-radius: 30% 70% 70% 30% / 60% 30% 70% 40%;">
+                        <img src="imagenes/nutricionista_joanna_rudman.jpg" alt="Foto de Joanna Rudman" class="w-full h-full object-cover">
+                    </div>
+                    <div class="mt-20">
+                        <h3 class="font-heading font-bold text-2xl text-gray-900 mb-1">Joanna Rudman</h3>
+                        <p class="text-green-600 font-semibold mb-4 text-sm uppercase tracking-wider bg-green-50 inline-block px-3 py-1 rounded-full">Nutricionista</p>
+                        <p class="text-gray-600 leading-relaxed text-sm mb-6">
+                            Especialista en nutrición pediátrica y selectividad alimentaria infantil, brindando planes integrales y amigables.
+                        </p>
+                        <a href="https://wa.me/56959501189?text=Hola,%20deseo%20reservar%20con%20Joanna%20Rudman" target="_blank" class="inline-flex items-center justify-center gap-2 bg-green-500 text-white w-full py-3 rounded-2xl font-heading font-bold hover:bg-green-600 transition-colors shadow-md hover:shadow-lg">
+                            <i class="fab fa-whatsapp text-lg"></i> Reservar
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 border-t border-gray-800 text-white py-8 mt-12">
+        <div class="container mx-auto px-6 text-center">
+            <h3 class="font-heading font-bold text-xl text-gesu-teal mb-4">Centro Infanto-Juvenil GESU</h3>
+            <p class="text-gray-400">&copy; 2025 Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/56959501189?text=Hola,%20quisiera%20reservar%20una%20hora." target="_blank" aria-label="Contactar por WhatsApp" class="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 hover:shadow-[#25D366]/40 transition-all duration-300 flex items-center justify-center group overflow-hidden">
+        <i class="fab fa-whatsapp text-3xl"></i>
+        <span class="max-w-0 overflow-hidden whitespace-nowrap opacity-0 group-hover:max-w-xs group-hover:opacity-100 group-hover:ml-3 transition-all duration-500 ease-in-out font-heading font-bold hidden md:block">Reserva tu Hora!</span>
+    </a>
+
+    <!-- Custom Logic -->
+    <script src="js/script.js"></script>
+</body>
+</html>

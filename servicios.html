@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios Integrales - Centro Infanto-Juvenil GESU</title>
+    <meta name="description" content="Descubre nuestros servicios integrales para el desarrollo: Terapia Ocupacional, Psicopedagogía, Fonoaudiología y más.">
+    <!-- Tailwind CSS (CDN for Static Environment) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'gesu-teal': '#4ECDC4',
+                        'gesu-coral': '#FF6B6B',
+                        'gesu-yellow': '#FFE66D',
+                        'gesu-cream': '#F9F9F9',
+                        'gesu-text': '#2D3436',
+                    },
+                    fontFamily: {
+                        'heading': ['"Quicksand"', 'sans-serif'],
+                        'body': ['"Nunito"', 'sans-serif'],
+                    },
+                    borderRadius: {
+                        'blob': '40% 60% 70% 30% / 40% 50% 60% 50%',
+                        'leaf': '3rem 0 3rem 0',
+                        'egg': '50% 50% 50% 50% / 60% 60% 40% 40%'
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'fade-up': 'fadeUp 0.8s ease-out forwards',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-15px)' },
+                        },
+                        fadeUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .glass {
+                @apply bg-white/70 backdrop-blur-md border border-white/40;
+            }
+        }
+        body { font-family: 'Nunito', sans-serif; background-color: #F9F9F9; color: #2D3436; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Quicksand', sans-serif; }
+        
+        /* Tab Logic styling to preserve JS functionality */
+        .service-nav-item {
+            @apply flex flex-col items-center gap-2 p-3 md:p-5 bg-white rounded-2xl shadow-sm md:shadow-md text-gray-500 font-heading font-semibold hover:bg-gray-50 hover:text-gesu-teal transition-all duration-300 w-full min-w-[140px] lg:w-full text-center cursor-pointer border border-transparent;
+        }
+        .service-nav-item i { @apply text-2xl md:text-3xl mb-1; }
+        .service-nav-item.active {
+            @apply bg-gesu-teal text-white shadow-xl scale-105 border-white/50 -translate-y-1 md:-translate-y-2;
+        }
+        .service-content-panel {
+            @apply hidden opacity-0 transition-opacity duration-500;
+        }
+        .service-content-panel.active {
+            @apply block opacity-100 animate-fade-up;
+        }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden selection:bg-gesu-coral selection:text-white">
+
+    <!-- Navbar -->
+    <header class="fixed w-full top-0 z-50 transition-all duration-300 py-4" id="main-nav">
+        <div class="container mx-auto px-4 lg:px-8">
+            <nav class="glass rounded-full px-6 py-3 flex items-center justify-between shadow-sm">
+                <a href="index.html" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-blob bg-gesu-teal overflow-hidden p-1 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                        <img src="imagenes/logo.jpg" alt="Logo Centro Gesu" class="w-full h-full object-cover rounded-full bg-white">
+                    </div>
+                    <span class="font-heading font-bold text-sm lg:text-base text-gesu-text tracking-tight hidden md:block">Centro Apoyo Infanto-Juvenil GESU C.A.I.G</span>
+                </a>
+
+                <button class="lg:hidden text-gesu-text text-2xl nav-toggle focus:outline-none" aria-label="Abrir menú">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <ul class="nav-menu absolute lg:static top-full left-4 right-4 mt-2 lg:mt-0 glass lg:bg-transparent lg:border-none lg:backdrop-blur-none rounded-2xl lg:rounded-none p-5 lg:p-0 flex flex-col lg:flex-row gap-4 lg:gap-8 shadow-xl lg:shadow-none hidden lg:flex items-center transform transition-all duration-300 origin-top opacity-0 lg:opacity-100 lg:scale-100 scale-95">
+                    <li><a href="index.html" class="font-heading font-semibold text-gray-600 hover:text-gesu-teal transition-colors">Inicio</a></li>
+                    <li><a href="nosotros.html" class="font-heading font-semibold text-gray-600 hover:text-gesu-teal transition-colors">Nosotros</a></li>
+                    <li><a href="servicios.html" class="font-heading font-semibold text-gesu-teal relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-full after:h-0.5 after:bg-gesu-teal after:rounded-full">Servicios</a></li>
+                    <li><a href="especialistas.html" class="font-heading font-semibold text-gray-600 hover:text-gesu-teal transition-colors">Especialistas</a></li>
+                    <li><a href="testimonios.html" class="font-heading font-semibold text-gray-600 hover:text-gesu-teal transition-colors">Testimonios</a></li>
+                    <li><a href="precios.html" class="font-heading font-semibold text-gray-600 hover:text-gesu-teal transition-colors">Precios</a></li>
+
+                </ul>
+
+                <a href="https://wa.me/56959501189?text=Hola,%20quisiera%20reservar%20una%20hora." target="_blank" class="hidden lg:inline-flex bg-gesu-coral text-white font-heading font-bold px-6 py-2.5 rounded-full hover:bg-opacity-90 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 items-center justify-center">
+                    Reservar Hora
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="pt-28 pb-20">
+        <!-- Page Header with Organic Blob -->
+        <section class="relative py-16 lg:py-24 overflow-hidden bg-gesu-yellow/10">
+            <div class="absolute top-0 right-0 w-96 h-96 bg-gesu-teal/10 rounded-blob mix-blend-multiply opacity-50 animate-float"></div>
+            <div class="absolute bottom-0 left-10 w-64 h-64 bg-gesu-coral/10 rounded-full blur-2xl mix-blend-multiply opacity-60"></div>
+            
+            <div class="container mx-auto px-6 lg:px-12 relative z-10 text-center animate-fade-up">
+                <span class="inline-block py-1 px-4 bg-gesu-yellow/20 text-yellow-700 rounded-full font-bold tracking-wider text-sm mb-4 font-heading border border-yellow-200">ESPECIALIDADES</span>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-gray-900 mb-6">Servicios <span class="text-gesu-coral">Integrales</span></h1>
+                <p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-8">Nuestro equipo multidisciplinario ofrece atención especializada y personalizada para cada niño y su familia.</p>
+                <div class="w-24 h-1.5 bg-gesu-teal mx-auto rounded-full"></div>
+            </div>
+        </section>
+
+        <!-- Services Tabs Section -->
+        <section class="py-16 md:py-24 container mx-auto px-4 lg:px-12 relative">
+            <div class="flex flex-col lg:flex-row gap-8 lg:gap-16 relative z-10">
+                
+                <!-- Nav Sidebar -->
+                <div class="lg:w-1/4">
+                    <div class="flex flex-row overflow-x-auto lg:flex-col gap-3 lg:gap-4 pb-4 lg:pb-0 scrollbar-hide shrink-0 lg:sticky lg:top-32" id="services-nav-container">
+                        <button class="service-nav-item active shrink-0" data-service="terapia-ocupacional">
+                            <i class="fas fa-puzzle-piece"></i> <span>Terapia Ocupacional</span>
+                        </button>
+                        <button class="service-nav-item shrink-0" data-service="psicopedagogia">
+                            <i class="fas fa-book-reader"></i> <span>Psicopedagogía</span>
+                        </button>
+                        <button class="service-nav-item shrink-0" data-service="fonoaudiologia">
+                            <i class="fas fa-comments"></i> <span>Fonoaudiología</span>
+                        </button>
+                        <button class="service-nav-item shrink-0" data-service="psicologia-clinica">
+                            <i class="fas fa-heart-pulse"></i> <span>Psicología Clínica</span>
+                        </button>
+                        <button class="service-nav-item shrink-0" data-service="medicina-familiar">
+                            <i class="fas fa-users"></i> <span>Medicina Familiar</span>
+                        </button>
+                        <button class="service-nav-item shrink-0" data-service="nutricion">
+                            <i class="fas fa-apple-alt"></i> <span>Nutrición</span>
+                        </button>
+                        <button class="service-nav-item shrink-0" data-service="kinesiologia">
+                            <i class="fas fa-dumbbell"></i> <span>Kinesiología</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Content Panels -->
+                <div class="lg:w-3/4">
+                    <div class="bg-white rounded-[2rem] lg:rounded-[3rem] shadow-xl p-6 md:p-12 relative overflow-hidden">
+                        
+                        <div class="service-content-panel active" id="terapia-ocupacional">
+                            <div class="w-full h-48 md:h-72 rounded-3xl overflow-hidden mb-8 border-4 border-gesu-teal/10">
+                                <img src="imagenes/carousel-1.JPG" alt="Terapia Ocupacional" class="w-full h-full object-cover">
+                            </div>
+                            <h3 class="text-3xl font-heading font-bold text-gesu-teal mb-4 flex items-center gap-3"><i class="fas fa-puzzle-piece"></i> Terapia Ocupacional</h3>
+                            <p class="text-lg text-gray-700 font-semibold mb-6">Desarrollamos habilidades para la vida diaria y mejoramos la independencia funcional de cada niño.</p>
+                            
+                            <h4 class="text-xl font-heading font-bold text-gray-900 mt-8 mb-3">¿En qué consiste?</h4>
+                            <p class="text-gray-600 mb-6 leading-relaxed">Nuestros terapeutas ocupacionales trabajan en el desarrollo de habilidades motoras, sensoriales y cognitivas. Incluye evaluación integral, planificación de tratamiento personalizado, actividades de vida diaria, integración sensorial y adaptación del entorno.</p>
+                            
+                            <h4 class="text-xl font-heading font-bold text-gray-900 mt-8 mb-4">Beneficios principales</h4>
+                            <ul class="grid sm:grid-cols-2 gap-4 text-gray-700">
+                                <li class="flex gap-2 items-start"><i class="fas fa-check-circle text-gesu-yellow mt-1 text-lg shrink-0"></i> <span>Mejora de habilidades motoras finas y gruesas.</span></li>
+                                <li class="flex gap-2 items-start"><i class="fas fa-check-circle text-gesu-yellow mt-1 text-lg shrink-0"></i> <span>Desarrollo de la autonomía personal.</span></li>
+                                <li class="flex gap-2 items-start"><i class="fas fa-check-circle text-gesu-yellow mt-1 text-lg shrink-0"></i> <span>Integración sensorial efectiva.</span></li>
+                                <li class="flex gap-2 items-start"><i class="fas fa-check-circle text-gesu-yellow mt-1 text-lg shrink-0"></i> <span>Adaptación del entorno familiar y escolar.</span></li>
+                            </ul>
+                        </div>
+
+                        <div class="service-content-panel" id="psicopedagogia">
+                            <div class="w-full h-48 md:h-72 rounded-3xl overflow-hidden mb-8 border-4 border-blue-500/10">
+                                <img src="imagenes/psicopedagogia.JPG" alt="Psicopedagogía" class="w-full h-full object-cover bg-gray-200">
+                            </div>
+                            <h3 class="text-3xl font-heading font-bold text-blue-500 mb-4 flex items-center gap-3"><i class="fas fa-book-reader"></i> Psicopedagogía</h3>
+                            <p class="text-lg text-gray-700 font-semibold mb-6">Apoyo educativo especializado para potenciar el aprendizaje y desarrollo académico.</p>
+                            <h4 class="text-xl font-heading font-bold text-gray-900 mt-8 mb-3">¿En qué consiste?</h4>
+                            <p class="text-gray-600 mb-6 leading-relaxed">Evaluación y tratamiento de dificultades de aprendizaje, adaptaciones curriculares, estrategias pedagógicas específicas y coordinación con establecimientos educacionales para garantizar una inclusión exitosa.</p>
+                            <h4 class="text-xl font-heading font-bold text-gray-900 mt-8 mb-4">Beneficios principales</h4>
+                            <ul class="grid sm:grid-cols-2 gap-4 text-gray-700">
+                                <li class="flex gap-2 items-start"><i class="fas fa-check-circle text-gesu-yellow mt-1 text-lg shrink-0"></i> Evaluación psicopedagógica integral.</li>
+                                <li class="flex gap-2 items-start"><i class="fas fa-check-circle text-gesu-yellow mt-1 text-lg shrink-0"></i> Planes de apoyo educativo personalizados.</li>
+                                <li class="flex gap-2 items-start"><i class="fas fa-check-circle text-gesu-yellow mt-1 text-lg shrink-0"></i> Coordinación con instituciones educativas.</li>
+                                <li class="flex gap-2 items-start"><i class="fas fa-check-circle text-gesu-yellow mt-1 text-lg shrink-0"></i> Desarrollo de estrategias de aprendizaje.</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="service-content-panel" id="fonoaudiologia">
+                            <div class="w-full h-48 md:h-72 rounded-3xl overflow-hidden mb-8 border-4 border-indigo-500/10">
+                                <img src="imagenes/fonoaudiologia.JPG" alt="Fonoaudiología" class="w-full h-full object-cover bg-gray-200">
+                            </div>
+                            <h3 class="text-3xl font-heading font-bold text-indigo-500 mb-4 flex items-center gap-3"><i class="fas fa-comments"></i> Fonoaudiología</h3>
+                            <p class="text-lg text-gray-700 font-semibold mb-6">Estimulación del lenguaje y comunicación con terapia del habla personalizada.</p>
+                            <h4 class="text-xl font-heading font-bold text-gray-900 mt-8 mb-3">¿En qué consiste?</h4>
+                            <p class="text-gray-600 mb-6 leading-relaxed">Evaluación y tratamiento de trastornos del habla, lenguaje y comunicación. Incluye terapia de articulación, desarrollo del lenguaje expresivo y comprensivo, comunicación alternativa y aumentativa.</p>
+                            <h4 class="text-xl font-heading font-bold text-gray-900 mt-8 mb-4">Beneficios principales</h4>
+                            <ul class="grid sm:grid-cols-2 gap-4 text-gray-700">
+                                <li class="flex gap-2 items-start"><i class="fas fa-check-circle text-gesu-yellow mt-1 text-lg shrink-0"></i> Mejora de la articulación y pronunciación.</li>
+                                <li class="flex gap-2 items-start"><i class="fas fa-check-circle text-gesu-yellow mt-1 text-lg shrink-0"></i> Desarrollo del lenguaje expresivo.</li>
+                                <li class="flex gap-2 items-start"><i class="fas fa-check-circle text-gesu-yellow mt-1 text-lg shrink-0"></i> Fortalecimiento de la comprensión auditiva.</li>
+                                <li class="flex gap-2 items-start"><i class="fas fa-check-circle text-gesu-yellow mt-1 text-lg shrink-0"></i> Sistemas de comunicación alternativa.</li>
+                            </ul>
+                        </div>
+
+                        <div class="service-content-panel" id="psicologia-clinica">
+                            <div class="w-full h-48 md:h-72 rounded-3xl overflow-hidden mb-8 border-4 border-red-400/10">
+                                <img src="imagenes/psicologia.JPG" alt="Psicología Clínica" class="w-full h-full object-cover bg-gray-200">
+                            </div>
+                            <h3 class="text-3xl font-heading font-bold text-red-400 mb-4 flex items-center gap-3"><i class="fas fa-heart-pulse"></i> Psicología Clínica</h3>
+                            <p class="text-lg text-gray-700 font-semibold mb-6">Evaluación, diagnóstico y tratamiento psicológico especializado para niños y familias.</p>
+                            <h4 class="text-xl font-heading font-bold text-gray-900 mt-8 mb-3">¿En qué consiste?</h4>
+                            <p class="text-gray-600 mb-6 leading-relaxed">Atención psicológica integral que incluye evaluación neuropsicológica, diagnóstico diferencial, terapia individual y familiar, manejo de conductas desafiantes y apoyo emocional.</p>
+                            <h4 class="text-xl font-heading font-bold text-gray-900 mt-8 mb-4">Beneficios principales</h4>
+                            <ul class="grid sm:grid-cols-2 gap-4 text-gray-700">
+                                <li class="flex gap-2 items-start"><i class="fas fa-check-circle text-gesu-yellow mt-1 text-lg shrink-0"></i> Evaluación psicológica completa.</li>
+                                <li class="flex gap-2 items-start"><i class="fas fa-check-circle text-gesu-yellow mt-1 text-lg shrink-0"></i> Diagnóstico especializado en TEA.</li>
+                                <li class="flex gap-2 items-start"><i class="fas fa-check-circle text-gesu-yellow mt-1 text-lg shrink-0"></i> Terapia individual y familiar.</li>
+                                <li class="flex gap-2 items-start"><i class="fas fa-check-circle text-gesu-yellow mt-1 text-lg shrink-0"></i> Manejo de conductas y emociones.</li>
+                            </ul>
+                        </div>
+
+                        <div class="service-content-panel" id="medicina-familiar">
+                            <div class="w-full h-48 md:h-72 rounded-3xl overflow-hidden mb-8 border-4 border-gesu-coral/10">
+                                <img src="imagenes/medicina_familiar.JPG" alt="Medicina Familiar" class="w-full h-full object-cover bg-gray-200">
+                            </div>
+                            <h3 class="text-3xl font-heading font-bold text-gesu-coral mb-4 flex items-center gap-3"><i class="fas fa-users"></i> Medicina Familiar</h3>
+                            <p class="text-lg text-gray-700 font-semibold mb-6">Atención médica integral con enfoque familiar y seguimiento continuo del desarrollo.</p>
+                            <h4 class="text-xl font-heading font-bold text-gray-900 mt-8 mb-3">¿En qué consiste?</h4>
+                            <p class="text-gray-600 mb-6 leading-relaxed">Atención médica especializada que incluye evaluación del desarrollo, seguimiento médico continuo, coordinación con especialistas, orientación sobre tratamientos y apoyo a la familia en decisiones médicas.</p>
+                            <h4 class="text-xl font-heading font-bold text-gray-900 mt-8 mb-4">Beneficios principales</h4>
+                            <ul class="grid sm:grid-cols-2 gap-4 text-gray-700">
+                                <li class="flex gap-2 items-start"><i class="fas fa-check-circle text-gesu-yellow mt-1 text-lg shrink-0"></i> Evaluación médica integral.</li>
+                                <li class="flex gap-2 items-start"><i class="fas fa-check-circle text-gesu-yellow mt-1 text-lg shrink-0"></i> Seguimiento del desarrollo neurológico.</li>
+                                <li class="flex gap-2 items-start"><i class="fas fa-check-circle text-gesu-yellow mt-1 text-lg shrink-0"></i> Coordinación con especialistas.</li>
+                                <li class="flex gap-2 items-start"><i class="fas fa-check-circle text-gesu-yellow mt-1 text-lg shrink-0"></i> Orientación médica familiar.</li>
+                            </ul>
+                        </div>
+
+                        <div class="service-content-panel" id="nutricion">
+                            <div class="w-full h-48 md:h-72 rounded-3xl overflow-hidden mb-8 border-4 border-green-500/10">
+                                <img src="imagenes/nutricion.JPG" alt="Nutrición y Dietética" class="w-full h-full object-cover bg-gray-200">
+                            </div>
+                            <h3 class="text-3xl font-heading font-bold text-green-500 mb-4 flex items-center gap-3"><i class="fas fa-apple-alt"></i> Nutrición y Dietética</h3>
+                            <p class="text-lg text-gray-700 font-semibold mb-6">Evaluación nutricional y planes alimentarios adaptados a las necesidades especiales.</p>
+                            <h4 class="text-xl font-heading font-bold text-gray-900 mt-8 mb-3">¿En qué consiste?</h4>
+                            <p class="text-gray-600 mb-6 leading-relaxed">Evaluación del estado nutricional, desarrollo de planes alimentarios personalizados, manejo de selectividad alimentaria, educación nutricional familiar y seguimiento del crecimiento.</p>
+                            <h4 class="text-xl font-heading font-bold text-gray-900 mt-8 mb-4">Beneficios principales</h4>
+                            <ul class="grid sm:grid-cols-2 gap-4 text-gray-700">
+                                <li class="flex gap-2 items-start"><i class="fas fa-check-circle text-gesu-yellow mt-1 text-lg shrink-0"></i> Evaluación nutricional especializada.</li>
+                                <li class="flex gap-2 items-start"><i class="fas fa-check-circle text-gesu-yellow mt-1 text-lg shrink-0"></i> Planes alimentarios personalizados.</li>
+                                <li class="flex gap-2 items-start"><i class="fas fa-check-circle text-gesu-yellow mt-1 text-lg shrink-0"></i> Manejo de selectividad alimentaria.</li>
+                                <li class="flex gap-2 items-start"><i class="fas fa-check-circle text-gesu-yellow mt-1 text-lg shrink-0"></i> Educación nutricional familiar.</li>
+                            </ul>
+                        </div>
+
+                        <div class="service-content-panel" id="kinesiologia">
+                            <div class="w-full h-48 md:h-72 rounded-3xl overflow-hidden mb-8 border-4 border-orange-500/10">
+                                <img src="imagenes/kinesiologo.JPG" alt="Kinesiología" class="w-full h-full object-cover bg-gray-200">
+                            </div>
+                            <h3 class="text-3xl font-heading font-bold text-orange-500 mb-4 flex items-center gap-3"><i class="fas fa-dumbbell"></i> Kinesiología</h3>
+                            <p class="text-lg text-gray-700 font-semibold mb-6">Rehabilitación física y desarrollo motor para mejorar la calidad de movimiento.</p>
+                            <h4 class="text-xl font-heading font-bold text-gray-900 mt-8 mb-3">¿En qué consiste?</h4>
+                            <p class="text-gray-600 mb-6 leading-relaxed">Evaluación y tratamiento kinesiológico que incluye desarrollo motor grueso, rehabilitación física, ejercicios terapéuticos, mejora del equilibrio y coordinación, y prevención de alteraciones posturales.</p>
+                            <h4 class="text-xl font-heading font-bold text-gray-900 mt-8 mb-4">Beneficios principales</h4>
+                            <ul class="grid sm:grid-cols-2 gap-4 text-gray-700">
+                                <li class="flex gap-2 items-start"><i class="fas fa-check-circle text-gesu-yellow mt-1 text-lg shrink-0"></i> Desarrollo de habilidades motoras gruesas.</li>
+                                <li class="flex gap-2 items-start"><i class="fas fa-check-circle text-gesu-yellow mt-1 text-lg shrink-0"></i> Mejora del equilibrio y coordinación.</li>
+                                <li class="flex gap-2 items-start"><i class="fas fa-check-circle text-gesu-yellow mt-1 text-lg shrink-0"></i> Fortalecimiento muscular.</li>
+                                <li class="flex gap-2 items-start"><i class="fas fa-check-circle text-gesu-yellow mt-1 text-lg shrink-0"></i> Prevención de alteraciones posturales.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 border-t border-gray-800 text-white py-8">
+        <div class="container mx-auto px-6 text-center">
+            <h3 class="font-heading font-bold text-xl text-gesu-teal mb-4">Centro Infanto-Juvenil GESU</h3>
+            <p class="text-gray-400">&copy; 2025 Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/56959501189?text=Hola,%20quisiera%20reservar%20una%20hora." target="_blank" aria-label="Contactar por WhatsApp" class="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 hover:shadow-[#25D366]/40 transition-all duration-300 flex items-center justify-center group overflow-hidden">
+        <i class="fab fa-whatsapp text-3xl"></i>
+        <span class="max-w-0 overflow-hidden whitespace-nowrap opacity-0 group-hover:max-w-xs group-hover:opacity-100 group-hover:ml-3 transition-all duration-500 ease-in-out font-heading font-bold hidden md:block">Reserva tu Hora!</span>
+    </a>
+
+    <!-- Custom Logic -->
+    <script src="js/script.js"></script>
+</body>
+</html>
