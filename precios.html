@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Precios - Centro Apoyo Infanto-Juvenil GESU C.A.I.G</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'gesu-teal': '#4ECDC4',
+                        'gesu-coral': '#FF6B6B',
+                        'gesu-yellow': '#FFE66D',
+                        'gesu-cream': '#F9F9F9',
+                        'gesu-text': '#2D3436',
+                    },
+                    fontFamily: {
+                        'heading': ['"Quicksand"', 'sans-serif'],
+                        'body': ['"Nunito"', 'sans-serif'],
+                    },
+                    borderRadius: {
+                        'blob': '40% 60% 70% 30% / 40% 50% 60% 50%',
+                        'leaf': '3rem 0 3rem 0',
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'fade-up': 'fadeUp 0.8s ease-out forwards',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-15px)' },
+                        },
+                        fadeUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .glass {
+                @apply bg-white/70 backdrop-blur-md border border-white/40;
+            }
+        }
+        body { font-family: 'Nunito', sans-serif; background-color: #F9F9F9; color: #2D3436; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Quicksand', sans-serif; }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden selection:bg-gesu-coral selection:text-white bg-[#F9F9F9]">
+
+    <!-- Navbar -->
+    <header class="fixed w-full top-0 z-50 transition-all duration-300 py-4" id="main-nav">
+        <div class="container mx-auto px-4 lg:px-8">
+            <nav class="glass rounded-full px-6 py-3 flex items-center justify-between shadow-sm">
+                <a href="index.html" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-blob bg-gesu-teal overflow-hidden p-1 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                        <img src="imagenes/logo.jpg" alt="Logo Centro Gesu" class="w-full h-full object-cover rounded-full bg-white">
+                    </div>
+                    <span class="font-heading font-bold text-sm lg:text-base text-gesu-text tracking-tight hidden md:block">Centro Apoyo Infanto-Juvenil GESU C.A.I.G</span>
+                </a>
+
+                <button class="lg:hidden text-gesu-text text-2xl nav-toggle focus:outline-none" aria-label="Abrir menú">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <ul class="nav-menu absolute top-[110%] left-4 right-4 mt-2 lg:mt-0 lg:static bg-white lg:bg-transparent lg:border-none lg:backdrop-blur-none rounded-2xl lg:rounded-none p-5 lg:p-0 flex flex-col lg:flex-row gap-4 lg:gap-8 shadow-2xl lg:shadow-none hidden lg:flex items-center z-50">
+                    <li><a href="index.html" class="font-heading font-semibold text-gray-600 hover:text-gesu-teal transition-colors">Inicio</a></li>
+                    <li><a href="nosotros.html" class="font-heading font-semibold text-gray-600 hover:text-gesu-teal transition-colors">Nosotros</a></li>
+                    <li><a href="servicios.html" class="font-heading font-semibold text-gray-600 hover:text-gesu-teal transition-colors">Servicios</a></li>
+                    <li><a href="especialistas.html" class="font-heading font-semibold text-gray-600 hover:text-gesu-teal transition-colors">Especialistas</a></li>
+                    <li><a href="testimonios.html" class="font-heading font-semibold text-gray-600 hover:text-gesu-teal transition-colors">Testimonios</a></li>
+                    <li><a href="precios.html" class="font-heading font-semibold text-gesu-teal relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-full after:h-0.5 after:bg-gesu-teal after:rounded-full">Precios</a></li>
+                </ul>
+
+                <a href="https://wa.me/56959501189?text=Hola,%20quisiera%20reservar%20una%20hora." target="_blank" class="hidden lg:inline-flex bg-gesu-coral text-white font-heading font-bold px-6 py-2.5 rounded-full hover:bg-opacity-90 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 items-center justify-center">
+                    Reservar Hora
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="pt-32 pb-20">
+        <!-- Page Header -->
+        <section class="relative py-12 lg:py-16 overflow-hidden">
+            <div class="absolute top-0 right-1/4 w-64 h-64 bg-gesu-coral/20 rounded-full blur-3xl mix-blend-multiply opacity-50 z-0"></div>
+            <div class="absolute bottom-10 left-10 w-48 h-48 bg-gesu-teal/20 rounded-blob mix-blend-multiply opacity-50 animate-float z-0"></div>
+            
+            <div class="container mx-auto px-6 lg:px-12 relative z-10 text-center animate-fade-up">
+                <span class="inline-block py-1 px-4 bg-gesu-coral/10 text-gesu-coral rounded-full font-bold tracking-wider text-sm mb-4 font-heading">INVERSIÓN EN DESARROLLO</span>
+                <h1 class="text-4xl md:text-5xl lg:text-5xl font-heading font-bold text-gray-900 mb-6">Nuestras Tarifas y Planes</h1>
+                <p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-8">Opciones flexibles y transparentes pensadas en la continuidad del tratamiento y el bienestar de los pequeños.</p>
+                <div class="w-24 h-1.5 bg-gesu-coral mx-auto rounded-full"></div>
+            </div>
+        </section>
+
+        <!-- Pricing Grid -->
+        <section class="py-12 container mx-auto px-6 lg:px-12 relative">
+            <div class="flex flex-col lg:flex-row justify-center gap-8 max-w-5xl mx-auto animate-fade-up" style="animation-delay: 0.2s;">
+                
+                <!-- Plan Sesión Individual -->
+                <div class="flex-1 bg-white rounded-3xl p-8 lg:p-10 shadow-lg border border-gray-100 hover:-translate-y-2 transition-transform duration-300 relative group">
+                    <div class="text-center mb-8">
+                        <div class="w-16 h-16 bg-gesu-teal/10 text-gesu-teal rounded-full flex items-center justify-center mx-auto mb-4 text-2xl group-hover:bg-gesu-teal group-hover:text-white transition-colors duration-300">
+                            <i class="fas fa-user-md"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-2xl text-gray-900 mb-2">Sesión Individual</h3>
+                        <p class="text-gray-500 text-sm">Ideal para evaluaciones iniciales o consultas esporádicas.</p>
+                    </div>
+                    <div class="text-center mb-8 border-y border-gray-100 py-6">
+                        <!-- Placeholder del valor, cámbialo a tu gusto -->
+                        <span class="text-4xl lg:text-5xl font-bold font-heading text-gray-900">$25.000</span>
+                        <span class="text-gray-500 font-semibold">/ sesión</span>
+                    </div>
+                    <ul class="space-y-4 mb-8 text-gray-600 text-sm lg:text-base">
+                        <li class="flex gap-3"><i class="fas fa-check text-gesu-teal mt-1"></i> Sesión terapéutica completa (45 mins).</li>
+                        <li class="flex gap-3"><i class="fas fa-check text-gesu-teal mt-1"></i> Feedback al apoderado al finalizar.</li>
+                        <li class="flex gap-3"><i class="fas fa-check text-gesu-teal mt-1"></i> Orientación para el hogar.</li>
+                        <li class="flex gap-3 opacity-50"><i class="fas fa-times text-gray-400 mt-1"></i> Material de apoyo continuado.</li>
+                    </ul>
+                    <a href="https://wa.me/56959501189?text=Hola,%20deseo%20reservar%20una%20sesión%20individual." target="_blank" class="block w-full py-4 rounded-xl text-center font-heading font-bold text-gesu-teal bg-gesu-teal/10 hover:bg-gesu-teal hover:text-white transition-colors">
+                        Reservar Especialidad
+                    </a>
+                </div>
+
+                <!-- Plan Mensual (El Destacado) -->
+                <div class="flex-1 bg-gesu-teal text-white rounded-3xl p-8 lg:p-10 shadow-2xl hover:-translate-y-2 transition-transform duration-300 relative scale-100 lg:scale-105 z-10 overflow-hidden group">
+                    <div class="absolute -right-16 -top-16 w-48 h-48 bg-white/10 rounded-full"></div>
+                    <div class="absolute inset-x-0 top-0 text-center py-1">
+                        <span class="bg-gesu-yellow text-yellow-900 text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-b-lg">Más Popular</span>
+                    </div>
+                    <div class="text-center mb-8 mt-4 relative z-10">
+                         <div class="w-16 h-16 bg-white/20 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-2xl mb-2">Plan Mensual Intensivo</h3>
+                        <p class="text-teal-50 text-sm">4 Sesiones mensuales recomendadas para progreso continuo.</p>
+                    </div>
+                    <div class="text-center mb-8 border-y border-white/20 py-6 relative z-10">
+                        <!-- Placeholder del valor, cámbialo a tu gusto -->
+                        <span class="text-4xl lg:text-5xl font-bold font-heading">$80.000</span>
+                        <span class="text-teal-100 font-semibold">/ mensual</span>
+                        <div class="italic text-xs font-light text-teal-200 mt-2">(Ahorras un porcentaje / equivalente a $20.000 por sesión)</div>
+                    </div>
+                    <ul class="space-y-4 mb-8 text-teal-50 text-sm lg:text-base relative z-10">
+                        <li class="flex gap-3"><i class="fas fa-check text-gesu-yellow mt-1"></i> Aseguras 4 horas al mes fijas.</li>
+                        <li class="flex gap-3"><i class="fas fa-check text-gesu-yellow mt-1"></i> Descuento aplicado en el valor por sesión.</li>
+                        <li class="flex gap-3"><i class="fas fa-check text-gesu-yellow mt-1"></i> Planificación terapéutica a mediano plazo.</li>
+                        <li class="flex gap-3"><i class="fas fa-check text-gesu-yellow mt-1"></i> Material de apoyo continuado.</li>
+                    </ul>
+                    <a href="https://wa.me/56959501189?text=Hola,%20deseo%20inscribirme%20en%20el%20Plan%20Mensual%20Intensivo." target="_blank" class="block w-full py-4 rounded-xl text-center font-heading font-bold text-gesu-teal bg-white hover:bg-gesu-yellow hover:text-yellow-900 transition-colors shadow-lg relative z-10">
+                        Contratar Plan Mensual
+                    </a>
+                </div>
+
+            </div>
+            
+            <!-- Aclaraciones -->
+            <div class="mt-16 text-center text-gray-500 max-w-2xl mx-auto space-y-2 text-sm animate-fade-up" style="animation-delay: 0.4s;">
+                <p>* Evaluaciones específicas como ADOS-2, WISC V, etc., tienen un valor distinto. Por favor consultar vía WhatsApp.</p>
+                <p>* Emitimos boletas de honorarios para reembolso en Isapres y seguros complementarios.</p>
+                <p><strong>Métodos de Pago:</strong> Transferencia electrónica, efectivo y tarjetas.</p>
+            </div>
+            
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 border-t border-gray-800 text-white py-8 mt-12">
+        <div class="container mx-auto px-6 text-center">
+            <h3 class="font-heading font-bold text-xl text-gesu-teal mb-4">Centro Apoyo Infanto-Juvenil GESU C.A.I.G</h3>
+            <p class="text-gray-400">&copy; 2025 Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/56959501189?text=Hola,%20quisiera%20reservar%20una%20hora." target="_blank" aria-label="Contactar por WhatsApp" class="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50 bg-[#25D366] text-white p-3 md:p-4 rounded-full shadow-2xl hover:scale-110 hover:shadow-[#25D366]/40 transition-all duration-300 flex items-center justify-center group overflow-hidden">
+        <i class="fab fa-whatsapp text-2xl md:text-3xl"></i>
+        <span class="max-w-0 overflow-hidden whitespace-nowrap opacity-0 group-hover:max-w-xs group-hover:opacity-100 group-hover:ml-3 transition-all duration-500 ease-in-out font-heading font-bold hidden md:block">Reserva tu Hora!</span>
+    </a>
+
+    <!-- Custom Logic -->
+    <script src="js/script.js"></script>
+</body>
+</html>
