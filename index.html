@@ -98,9 +98,9 @@
     <main class="pt-28">
         <!-- Hero Section -->
         <section class="relative py-12 lg:py-20 overflow-hidden">
-            <!-- Decorative Blobs -->
-            <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-gesu-yellow/30 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-float" style="animation-delay: 2s;"></div>
-            <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-72 h-72 bg-gesu-teal/20 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-float"></div>
+            <!-- Decorative Blobs (Fixed compositor glitch by avoiding mix-blend-multiply and using negative base z-index) -->
+            <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-gesu-yellow/30 rounded-full blur-3xl opacity-50 animate-float -z-10" style="animation-delay: 2s;"></div>
+            <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-72 h-72 bg-gesu-teal/20 rounded-full blur-3xl opacity-50 animate-float -z-10"></div>
 
             <div class="container mx-auto px-6 lg:px-12 relative z-10">
                 <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
